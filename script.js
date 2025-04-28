@@ -43,6 +43,10 @@ const allInputs = document.querySelectorAll( 'input' );
 secInput.addEventListener( 'input', () => {
   timerOn = false
   secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
+
+  if ( !Number( secInput.value ) ) {
+    secInput.value = ''
+  }
 } );
 minInput.addEventListener( 'input', () => {
   timerOn = false
