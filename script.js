@@ -51,6 +51,7 @@ minInput.addEventListener( 'input', () => {
 
 // function to change the time into a correct time format
 function minSec() {
+
   if ( secInput.value >= 60 ) {
     const changedTime = Math.round( secInput.value / 60 );
     const addedTime = Number( minInput.value ) + changedTime;
