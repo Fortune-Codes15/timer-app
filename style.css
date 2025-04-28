@@ -1,0 +1,32 @@
+main{
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+  gap: 15px;
+  height: calc(100vh - 45px);
+  justify-content: center;
+}
+
+input{
+  width: 60px;
+  font-size: 1.2rem;
+}
+
+span{
+  font-size: 3rem;
+  font-weight: 500;
+  transition: .1s;
+}
+
+.timeDisplay{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button{
+  padding: .7rem 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+
+}
