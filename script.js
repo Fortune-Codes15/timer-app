@@ -1,8 +1,8 @@
-const minDisplay = document.querySelector( '#root' );
+const minDisplay = document.querySelector( '#min' );
 const secInput = document.querySelector( '.seconds' );
 const minInput = document.querySelector( '.minutes' )
 const btn = document.querySelector( '.button' );
-const secDisplay = document.querySelector( '#topRoot' );
+const secDisplay = document.querySelector( '#sec' );
 
 let timerOn = false; // track timer use
 
@@ -20,8 +20,8 @@ function timer() {
         sec = 60;
       }
       sec--;
-      secDisplay.innerHTML = String( min ).padStart( 2, 0 );
-      minDisplay.innerHTML = String( sec ).padStart( 2, 0 );
+      minDisplay.innerHTML = String( min ).padStart( 2, 0 );
+      secDisplay.innerHTML = String( sec ).padStart( 2, 0 );
     }
   }, 1000 );
 };
@@ -42,11 +42,11 @@ const allInputs = document.querySelectorAll( 'input' );
 
 secInput.addEventListener( 'input', () => {
   timerOn = false
-  minDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
+  secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
 } );
 minInput.addEventListener( 'input', () => {
   timerOn = false
-  secDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 )
+  minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 )
 } );
 
 // function to change the time into a correct time format
