@@ -14,6 +14,7 @@ function timer() {
   const interval = setInterval( () => {
     if ( min <= 0 && sec <= 0 || timerOn === false ) {
       clearInterval( interval );
+      btn.disabled = false
     } else {
       if ( min >= 0 && sec === 0 ) {
         min--;
@@ -34,6 +35,7 @@ btn.addEventListener( 'click', () => {
     timer();
     minInput.value = '';
     secInput.value = '';
+    btn.disabled = true
   }
 } );
 
@@ -43,14 +45,19 @@ const allInputs = document.querySelectorAll( 'input' );
 secInput.addEventListener( 'input', () => {
   timerOn = false
   secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
-
-  if ( !Number( secInput.value ) ) {
-    secInput.value = ''
+  if ( !Number( secInput.value ) || Number( secInput ) < 0 ) {
+    secInput.value = '';
+    secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 )
   }
+
 } );
 minInput.addEventListener( 'input', () => {
   timerOn = false
-  minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 )
+  minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 );
+  if ( !Number( minInput.value ) || Number( secInput.value ) < 0 ) {
+    minInput.value = '';
+    minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 )
+  }
 } );
 
 // function to change the time into a correct time format
