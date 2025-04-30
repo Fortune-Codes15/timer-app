@@ -56,6 +56,11 @@ allInputs.forEach( ( input ) => {
     btn.disabled = false;
     pauseBtn.disabled = true;
     icon.classList.remove( 'ri-play-fill' );
+  } );
+
+  input.addEventListener( 'focus', () => {
+    secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
+    minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
   } )
 } )
 
@@ -115,3 +120,17 @@ pauseBtn.addEventListener( 'click', () => {
     }, 1000 );
   }
 } );
+
+const resetBtn = document.querySelector( '.reset' )
+
+resetBtn.addEventListener( 'click', () => {
+  clearInterval( interval );
+  secInput.value = '';
+  minInput.value = '';
+  minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 )
+  secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
+
+  btn.disabled = false;
+  pauseBtn.disabled = true;
+  icon.classList.remove( 'ri-play-fill' );
+} )
