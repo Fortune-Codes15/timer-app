@@ -133,4 +133,4 @@ resetBtn.addEventListener( 'click', () => {
   btn.disabled = false;
   pauseBtn.disabled = true;
   icon.classList.remove( 'ri-play-fill' );
-} )
+} );
