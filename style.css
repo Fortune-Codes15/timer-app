@@ -77,3 +77,12 @@ input:focus{
 input{
   margin: 5px;
 }
+
+@media (width < 480px) {
+  .circle{
+    transform: scale(.8);
+  }
+  .message{
+    font-size: 14px;
+  }
+}
