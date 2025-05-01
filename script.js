@@ -40,11 +40,11 @@ function timer() {
 btn.addEventListener( 'click', () => {
   timerOn = true
   if ( timerOn === true ) {
+    btn.disabled = true
     minSec()
     timer();
     minInput.value = '';
     secInput.value = '';
-    btn.disabled = true
   }
 } );
 
