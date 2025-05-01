@@ -55,13 +55,16 @@ allInputs.forEach( ( input ) => {
     btn.disabled = false;
     pauseBtn.disabled = true;
     icon.classList.remove( 'ri-play-fill' );
+    if ( paused === true ) {
+      secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
+      minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
+    }
+
   } );
 } )
 
 secInput.addEventListener( 'input', () => {
   timerOn = false;
-  secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
-  minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
   secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
   if ( !Number( secInput.value ) || Number( secInput.value ) < 0 ) {
     secInput.value = '';
@@ -71,8 +74,6 @@ secInput.addEventListener( 'input', () => {
 } );
 minInput.addEventListener( 'input', () => {
   timerOn = false;
-  secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
-  minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
   minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 );
   if ( !Number( minInput.value ) || Number( minInput.value ) < 0 ) {
     minInput.value = '';
