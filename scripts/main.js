@@ -43,7 +43,8 @@ btn.addEventListener( 'click', () => {
     timer();
     minInput.value = '';
     secInput.value = '';
-  }
+  };
+  paused = false
 } );
 
 // added live changes to display
@@ -60,6 +61,7 @@ allInputs.forEach( ( input ) => {
 secInput.addEventListener( 'input', () => {
   timerOn = false;
   secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
+  minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
   secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
   if ( !Number( secInput.value ) || Number( secInput.value ) < 0 ) {
     secInput.value = '';
@@ -69,6 +71,7 @@ secInput.addEventListener( 'input', () => {
 } );
 minInput.addEventListener( 'input', () => {
   timerOn = false;
+  secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
   minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
   minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 );
   if ( !Number( minInput.value ) || Number( minInput.value ) < 0 ) {
@@ -116,6 +119,7 @@ pauseBtn.addEventListener( 'click', () => {
       }
     }, 1000 );
   }
+  console.log( paused )
 } );
 
 const resetBtn = document.querySelector( '.reset' )
@@ -128,4 +132,5 @@ resetBtn.addEventListener( 'click', () => {
   btn.disabled = false;
   pauseBtn.disabled = true;
   icon.classList.remove( 'ri-play-fill' );
+  paused = false
 } );
