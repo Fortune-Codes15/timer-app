@@ -74,8 +74,13 @@ button:hover{
 input:focus{
   outline: 1px solid rgba(0, 0, 0, 0.481);
 }
+
 input{
   margin: 5px;
+}
+
+.preference_text{
+  font-size: 12px;
 }
 
 @media (width < 480px) {
