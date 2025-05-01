@@ -79,8 +79,21 @@ input{
   margin: 5px;
 }
 
+.preference{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
 .preference_text{
-  font-size: 12px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  padding-bottom: .4rem;
+}
+
+.preference_text:hover{
+  border-bottom: 2px solid rgb(0, 68, 255);
 }
 
 @media (width < 480px) {
