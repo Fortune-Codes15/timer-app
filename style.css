@@ -41,6 +41,8 @@ i{
   border: 2px solid grey;
   height: 300px;
   width: 300px;
+  gap: 10px;
+  padding: 20px;
 }
 
 .buttons{
@@ -60,4 +62,18 @@ button:hover{
   align-items: center;
   font-size: 2.1rem;
   gap: 10px;
+}
+
+
+.message{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+input:focus{
+  outline: 1px solid rgba(0, 0, 0, 0.481);
+}
+input{
+  margin: 5px;
 }

@@ -5,13 +5,11 @@ const btn = document.querySelector( '.button' );
 const secDisplay = document.querySelector( '#sec' );
 const pauseBtn = document.querySelector( '.pause' )
 
-let timerOn = false; // track timer use
+let timerOn = false; // track timer's state
 let paused = false;
 let interval;
 let min, sec;
-
 pauseBtn.disabled = true;
-
 
 // function for handling timer logic
 function timer() {
@@ -57,15 +55,11 @@ allInputs.forEach( ( input ) => {
     pauseBtn.disabled = true;
     icon.classList.remove( 'ri-play-fill' );
   } );
-
-  input.addEventListener( 'focus', () => {
-    secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
-    minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
-  } )
 } )
 
 secInput.addEventListener( 'input', () => {
-  timerOn = false
+  timerOn = false;
+  secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
   secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
   if ( !Number( secInput.value ) || Number( secInput.value ) < 0 ) {
     secInput.value = '';
@@ -74,7 +68,8 @@ secInput.addEventListener( 'input', () => {
 
 } );
 minInput.addEventListener( 'input', () => {
-  timerOn = false
+  timerOn = false;
+  minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
   minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 );
   if ( !Number( minInput.value ) || Number( minInput.value ) < 0 ) {
     minInput.value = '';
@@ -94,6 +89,8 @@ function minSec() {
   }
 };
 
+
+//pause button functionality
 const icon = document.querySelector( '.play' )
 
 pauseBtn.addEventListener( 'click', () => {
@@ -122,14 +119,12 @@ pauseBtn.addEventListener( 'click', () => {
 } );
 
 const resetBtn = document.querySelector( '.reset' )
-
 resetBtn.addEventListener( 'click', () => {
   clearInterval( interval );
   secInput.value = '';
   minInput.value = '';
   minDisplay.innerHTML = String( minInput.value ).padStart( 2, 0 )
   secDisplay.innerHTML = String( secInput.value ).padStart( 2, 0 );
-
   btn.disabled = false;
   pauseBtn.disabled = true;
   icon.classList.remove( 'ri-play-fill' );
