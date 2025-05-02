@@ -1,3 +1,8 @@
+body{
+  background-color: #EDEDED;
+  transition: ease .4s;
+}
+
 main{
   display: flex;
   align-items:center;
@@ -15,7 +20,7 @@ input{
 span{
   font-size: 3rem;
   font-weight: 500;
-  transition: .1s;
+  transition: .4s;
 }
 
 button{
@@ -30,6 +35,7 @@ button{
 
 i{
   font-size: 2rem;
+  font-weight: 400;
 }
 
 .circle{
@@ -54,7 +60,6 @@ i{
 
 button:hover{
   scale: 1.1;
-  background-color: rgb(249, 249, 249);
 }
 
 .timeDisplay{
@@ -77,6 +82,9 @@ input:focus{
 
 input{
   margin: 5px;
+  transition: ease .4s;
+  background-color: transparent;
+  border: 2px solid black;
 }
 
 .preference{
@@ -103,4 +111,22 @@ input{
   .message{
     font-size: 14px;
   }
+}
+
+.dark{
+  background-color: #121211;
+  color: white;
+}
+
+.circle-dark{
+  border-color: white;
+}
+
+.icons-dark{
+  color: white;
+}
+
+.input-dark{
+  border: 2px solid white;
+  background-color: whitesmoke;
 }
