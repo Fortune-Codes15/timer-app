@@ -22,8 +22,7 @@ changePreference.addEventListener( 'click', () => {
 
 const user = 'Fortune';
 
-s
 localStorage.setItem( 'user', JSON.stringify( user ) );
 
 const storedUSer = JSON.parse( localStorage.getItem( 'user' ) )
-console.log( storedUSer )
+console.log( storedUSer );

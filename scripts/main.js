@@ -1,9 +1,11 @@
+const audio = document.querySelector( 'audio' )
 const minDisplay = document.querySelector( '#min' );
 const secInput = document.querySelector( '.seconds' );
 const minInput = document.querySelector( '.minutes' )
 const btn = document.querySelector( '.button' );
 const secDisplay = document.querySelector( '#sec' );
-const pauseBtn = document.querySelector( '.pause' )
+const pauseBtn = document.querySelector( '.pause' );
+
 
 let timerOn = false; // track timer's state
 let paused = false;
@@ -20,7 +22,8 @@ function timer() {
     if ( min <= 0 && sec <= 0 || timerOn === false ) {
       clearInterval( interval );
       btn.disabled = false
-      pauseBtn.disabled = true
+      pauseBtn.disabled = true;
+      audio.play()
     } else {
       if ( min >= 0 && sec === 0 ) {
         min--;
@@ -133,5 +136,7 @@ resetBtn.addEventListener( 'click', () => {
   btn.disabled = false;
   pauseBtn.disabled = true;
   icon.classList.remove( 'ri-play-fill' );
-  paused = false
+  paused = false;
+  audio.currentTime = 0;
+  audio.pause()
 } );
