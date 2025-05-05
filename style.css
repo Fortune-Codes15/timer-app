@@ -10,6 +10,7 @@ main{
   gap: 15px;
   height: calc(100vh - 45px);
   justify-content: center;
+  transition: .4s;
 }
 
 input{
@@ -125,4 +126,16 @@ input{
 .input-dark{
   border: 2px solid white;
   background-color: whitesmoke;
+}
+
+.error{
+  animation: error ease 1s;
+}
+
+@keyframes error {
+  0%{
+    border-color: #EF4444;
+  } 100%{
+    border-color: grey;
+  }
 }

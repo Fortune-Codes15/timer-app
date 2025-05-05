@@ -23,7 +23,7 @@ function timer() {
       clearInterval( interval );
       btn.disabled = false
       pauseBtn.disabled = true;
-      audio.play()
+      audio.play(); audio.loop = true;
     } else {
       if ( min >= 0 && sec === 0 ) {
         min--;
@@ -36,28 +36,40 @@ function timer() {
     }
   }, 1000 );
 };
+const circle = document.querySelector( '.circle' );
+const errorMessage = document.querySelector( '.error-message' )
 
 // to handle click event
 btn.addEventListener( 'click', () => {
-  timerOn = true
-  if ( timerOn === true ) {
-    btn.disabled = true
-    minSec()
-    timer();
-    minInput.value = '';
-    secInput.value = '';
-  };
-  paused = false
+  if ( secInput.value === '' && minInput.value === '' ) {
+    circle.classList.add( 'error' );
+    timeout = setTimeout( () => {
+      circle.classList.remove( 'error' )
+    }, 500 );
+    return errorMessage.innerHTML = 'Please enter a valid Time'
+  }
+  else {
+    timerOn = true
+    if ( timerOn === true ) {
+      btn.disabled = true
+      minSec()
+      timer();
+      minInput.value = '';
+      secInput.value = '';
+    };
+    paused = false
+  }
 } );
 
-// added live changes to display
-const allInputs = document.querySelectorAll( 'input' );
+// added live changes to display // for all the inputs on the screen
 
+const allInputs = document.querySelectorAll( 'input' );
 allInputs.forEach( ( input ) => {
   input.addEventListener( 'input', () => {
     btn.disabled = false;
     pauseBtn.disabled = true;
     icon.classList.remove( 'ri-play-fill' );
+    errorMessage.innerHTML = '';
     if ( paused === true ) {
       secDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
       minDisplay.innerHTML = String( 0 ).padStart( 2, 0 );
