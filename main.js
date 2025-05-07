@@ -152,3 +152,17 @@ resetBtn.addEventListener( 'click', () => {
   audio.currentTime = 0;
   audio.pause()
 } );
+
+
+const worker = new Worker( "settings.js" );
+
+worker.onmessage = ( e ) => {
+  const { type, result } = e.data;
+
+  if ( type === 'RESULT' ) {
+    console.log( 'Data from worker:', result );
+  }
+};
+
+const dataToProcess = [ 1, 2, 3, 4 ];
+worker.postMessage( { type: 'PROCESS_DATA', payload: dataToProcess } );
